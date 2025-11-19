@@ -15,7 +15,7 @@ const LifestyleGrid: React.FC = () => {
           {[1, 2, 3, 4].map((item) => (
             <div key={item} className="aspect-square relative overflow-hidden group cursor-pointer bg-gray-100">
               <img
-                src={item === 1 ? 'https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800&auto=format&fit=crop' : item === 2 ? '/images/lifestyle1.png' : item === 3 ? '/images/lifestyle2.png' : '/images/lifestyle3.png'}
+                src={item === 1 ? 'https://images.unsplash.com/photo-1484704849700-f032a568e944?q=80&w=800&auto=format&fit=crop' : item === 2 ? 'images/lifestyle1.png' : item === 3 ? 'images/lifestyle2.png' : 'images/lifestyle3.png'}
                 alt="Lifestyle"
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
               />

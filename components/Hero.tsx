@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
           <div className="w-full h-full relative flex items-center justify-center">
             <img
-              src="/images/hero_large.png"
+              src="images/hero_large.png"
               alt="Sencor Hero Speaker"
               className="h-[120%] w-auto max-w-none object-contain object-center translate-y-[10%]"
             />
