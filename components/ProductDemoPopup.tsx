@@ -30,7 +30,7 @@ const ProductDemoPopup: React.FC = () => {
   useEffect(() => {
     if (isOpen && scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const duration = 20000; // 20 seconds for full scroll
+      const duration = 10000; // 20 seconds for full scroll
       let startTime = Date.now();
       let direction = 1; // 1 for down, -1 for up
 
@@ -39,7 +39,20 @@ const ProductDemoPopup: React.FC = () => {
 
         const currentTime = Date.now();
         const elapsed = currentTime - startTime;
-        const scrollHeight = container.scrollHeight - container.clientHeight;
+        
+        // Calculate the actual visual height of the content
+        // The content is scaled by 0.25, so we need to calculate the scroll limit based on that
+        const contentWrapper = container.firstElementChild;
+        if (!contentWrapper) return;
+        
+        const unscaledContentHeight = contentWrapper.scrollHeight;
+        const scaledContentHeight = unscaledContentHeight * 0.25;
+        const paddingTop = 48; // Matches the paddingTop in styles
+        const totalVisualHeight = paddingTop + scaledContentHeight;
+        
+        // Calculate max scroll distance
+        // We want to scroll until the bottom of the visual content meets the bottom of the viewport
+        const maxScroll = Math.max(0, totalVisualHeight - container.clientHeight);
 
         // Calculate progress (0 to 1)
         let progress = (elapsed % duration) / duration;
@@ -48,7 +61,7 @@ const ProductDemoPopup: React.FC = () => {
         const easeInOutCubic = (t: number) =>
           t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-        container.scrollTop = scrollHeight * easeInOutCubic(progress);
+        container.scrollTop = maxScroll * easeInOutCubic(progress);
 
         // Reset when reaching the end to create a loop
         if (elapsed >= duration) {
@@ -207,8 +220,7 @@ const ProductDemoPopup: React.FC = () => {
                     <FAQ />
                   </main>
                   <Footer />
-                  {/* Add padding at the bottom so content doesn't disappear */}
-                  <div className="w-full h-screen bg-white"></div>
+
                 </div>
               </div>
             </div>
