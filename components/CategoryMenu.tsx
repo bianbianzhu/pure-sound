@@ -45,7 +45,7 @@ const CategoryMenu: React.FC = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   href="#" 
                   key={idx} 
-                  className="group relative border-t border-gray-200 py-8 md:py-12 flex items-baseline justify-between hover:pl-8 transition-all duration-300"
+                  className="group relative border-t border-gray-200 py-8 md:py-12 flex items-baseline justify-between hover:pl-8 transition-[padding] duration-300"
                 >
                   <h3 className="text-5xl md:text-8xl uppercase font-medium text-[#D9281C] group-hover:text-black transition-colors">
                     {cat.name}
