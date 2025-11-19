@@ -7,6 +7,7 @@ import LifestyleGrid from './components/LifestyleGrid';
 import CategoryMenu from './components/CategoryMenu';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+import ProductDemoPopup from './components/ProductDemoPopup';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
         <FAQ />
       </main>
       <Footer />
+      <ProductDemoPopup />
     </div>
   );
 };
