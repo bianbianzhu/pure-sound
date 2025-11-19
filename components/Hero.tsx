@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
@@ -24,13 +25,45 @@ const Hero: React.FC = () => {
         {/* Bottom Text Layer */}
         <div className="relative z-30 mt-auto md:mb-0">
           <div className="flex items-end justify-between w-full border-b border-white/20 pb-4 mb-4">
-            <span className="text-white/80 text-xs font-bold tracking-widest uppercase hidden md:block">(SENCORS SPEAKERS)</span>
-            <span className="text-white/80 text-xs font-bold tracking-widest uppercase hidden md:block">SCROLL DOWN ↓</span>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white/80 text-xs font-bold tracking-widest uppercase hidden md:block"
+            >
+              (SENCORS SPEAKERS)
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-white/80 text-xs font-bold tracking-widest uppercase hidden md:block"
+            >
+              SCROLL DOWN ↓
+            </motion.span>
           </div>
 
           <h1 className="text-white font-bold uppercase leading-[0.8] tracking-tighter text-[15vw] md:text-[11vw] flex flex-col w-full">
-            <span className="block">Pure Sound</span>
-            <span className="block md:ml-[10vw]">Anywhere <span className="inline-block align-middle ml-4 transform rotate-90 md:rotate-0">↓</span></span>
+            <motion.span 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="block"
+            >
+              Pure Sound
+            </motion.span>
+            <motion.span 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              className="block md:ml-[10vw]"
+            >
+              Anywhere <span className="inline-block align-middle ml-4 transform rotate-90 md:rotate-0">↓</span>
+            </motion.span>
           </h1>
         </div>
 

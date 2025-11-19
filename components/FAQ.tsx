@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 
 const questions = [
@@ -19,23 +20,50 @@ const FAQ: React.FC = () => {
         
         {/* Title Column */}
         <div className="lg:col-span-4">
-          <span className="text-[#D9281C] text-xs font-bold tracking-widest uppercase block mb-24">(FAQ)</span>
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-[#D9281C] text-xs font-bold tracking-widest uppercase block mb-24"
+          >
+            (FAQ)
+          </motion.span>
           <div className="max-w-xs">
-              <p className="text-[#D9281C] text-xs font-bold uppercase leading-relaxed tracking-wide">
+              <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-[#D9281C] text-xs font-bold uppercase leading-relaxed tracking-wide"
+              >
                   Within 24 hours of its reveal, the metaverse's discord server had over 20,000 members, then quickly grew into the hundreds of thousands. This made the mekaverse one of the most highly anticipated NFT drops of 2021.
-              </p>
+              </motion.p>
           </div>
         </div>
 
         {/* Questions Column */}
         <div className="lg:col-span-8">
-           <h2 className="text-[#D9281C] text-6xl md:text-8xl font-medium tracking-tight leading-none mb-16">
+           <motion.h2 
+             initial={{ opacity: 0, y: 30 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             transition={{ duration: 0.8, ease: "easeOut" }}
+             className="text-[#D9281C] text-6xl md:text-8xl font-medium tracking-tight leading-none mb-16"
+           >
               Questions
-           </h2>
+           </motion.h2>
 
            <div className="flex flex-col">
               {questions.map((item, index) => (
-                <div key={index} className="border-t border-gray-200">
+                <motion.div 
+                  key={index} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="border-t border-gray-200"
+                >
                   <button 
                     onClick={() => setOpenIndex(openIndex === index ? null : index)}
                     className="w-full py-8 flex items-center justify-between group text-left"
@@ -52,7 +80,7 @@ const FAQ: React.FC = () => {
                       {item.a}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
                <div className="border-t border-gray-200"></div>
            </div>

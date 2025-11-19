@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface ProductProps {
   id: string;
@@ -41,19 +42,46 @@ const ProductRow: React.FC<ProductProps> = ({ name, code, description, imageUrl 
       {/* Left Info */}
       <div className="flex flex-col items-start h-full justify-center">
         <div className="flex items-baseline gap-2 mb-8">
-          <h3 className="text-5xl md:text-7xl font-medium uppercase text-[#D9281C] tracking-tight group-hover:text-black transition-colors duration-300">
+          <motion.h3 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl md:text-7xl font-medium uppercase text-[#D9281C] tracking-tight group-hover:text-black transition-colors duration-300"
+          >
             {name}
-          </h3>
-          <span className="text-[#D9281C] font-bold text-sm md:text-lg align-top -mt-4 group-hover:text-black transition-colors duration-300">{code}</span>
+          </motion.h3>
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-[#D9281C] font-bold text-sm md:text-lg align-top -mt-4 group-hover:text-black transition-colors duration-300"
+          >
+            {code}
+          </motion.span>
         </div>
 
-        <p className="text-[#D9281C] text-sm md:text-base font-medium uppercase leading-relaxed max-w-md tracking-wide mb-12 group-hover:text-black transition-colors duration-300">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-[#D9281C] text-sm md:text-base font-medium uppercase leading-relaxed max-w-md tracking-wide mb-12 group-hover:text-black transition-colors duration-300"
+        >
           {description}
-        </p>
+        </motion.p>
 
-        <a href="#" className="inline-block text-[#D9281C] text-xs font-bold uppercase tracking-widest border-b border-[#D9281C] pb-1 hover:text-black hover:border-black transition-all">
+        <motion.a 
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          href="#" 
+          className="inline-block text-[#D9281C] text-xs font-bold uppercase tracking-widest border-b border-[#D9281C] pb-1 hover:text-black hover:border-black transition-all"
+        >
           More Info
-        </a>
+        </motion.a>
       </div>
 
       {/* Right Image */}

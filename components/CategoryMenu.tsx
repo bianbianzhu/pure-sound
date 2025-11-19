@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const categories = [
   { name: 'Audio Systems', count: '08' },
@@ -14,16 +15,38 @@ const CategoryMenu: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
           <div className="lg:col-span-4">
-            <span className="text-[#D9281C] text-xs font-bold tracking-widest uppercase">(CATEGORIES)</span>
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-[#D9281C] text-xs font-bold tracking-widest uppercase"
+            >
+              (CATEGORIES)
+            </motion.span>
           </div>
           <div className="lg:col-span-8">
-            <h2 className="text-[#D9281C] text-6xl md:text-8xl font-medium tracking-tight leading-[0.9] mb-24">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="text-[#D9281C] text-6xl md:text-8xl font-medium tracking-tight leading-[0.9] mb-24"
+            >
               Explore More <br /> from Sencor
-            </h2>
+            </motion.h2>
 
             <div className="flex flex-col">
               {categories.map((cat, idx) => (
-                <a href="#" key={idx} className="group relative border-t border-gray-200 py-8 md:py-12 flex items-baseline justify-between hover:pl-8 transition-all duration-300">
+                <motion.a 
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  href="#" 
+                  key={idx} 
+                  className="group relative border-t border-gray-200 py-8 md:py-12 flex items-baseline justify-between hover:pl-8 transition-all duration-300"
+                >
                   <h3 className="text-5xl md:text-8xl uppercase font-medium text-[#D9281C] group-hover:text-black transition-colors">
                     {cat.name}
                   </h3>
@@ -36,7 +59,7 @@ const CategoryMenu: React.FC = () => {
                     {/* Placeholder for category image on hover */}
                     <img src={`https://picsum.photos/seed/${cat.name}/300/200`} alt="" className="w-full h-full object-cover grayscale" />
                   </div>
-                </a>
+                </motion.a>
               ))}
               <div className="border-t border-gray-200"></div>
             </div>
