@@ -111,7 +111,7 @@ const ProductDemoPopup: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleReopen}
-            className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-[#D9281C] to-[#FF4436] text-white rounded-full px-6 py-3 shadow-2xl hover:shadow-3xl transition-all flex items-center gap-2 font-bold"
+            className="hidden md:flex fixed bottom-6 right-6 z-50 bg-gradient-to-r from-[#D9281C] to-[#FF4436] text-white rounded-full px-6 py-3 shadow-2xl hover:shadow-3xl transition-all items-center gap-2 font-bold"
             aria-label="Open product demo"
           >
             <Sparkles className="w-5 h-5" />
@@ -128,7 +128,7 @@ const ProductDemoPopup: React.FC = () => {
             animate={{ opacity: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, x: 100, y: 100 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-6 right-6 z-50 bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#D9281C]"
+            className="hidden md:block fixed bottom-6 right-6 z-50 bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-[#D9281C]"
             style={{
               width: "20vw",
               minWidth: "280px",
