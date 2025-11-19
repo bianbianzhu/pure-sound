@@ -78,7 +78,7 @@ const ProductRow: React.FC<ProductProps> = ({ name, code, description, imageUrl 
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
           href="#" 
-          className="inline-block text-[#D9281C] text-xs font-bold uppercase tracking-widest border-b border-[#D9281C] pb-1 hover:text-black hover:border-black transition-all"
+          className="inline-block text-[#D9281C] text-xs font-bold uppercase tracking-widest border-b border-[#D9281C] pb-1 hover:text-black hover:border-black transition-colors duration-300"
         >
           More Info
         </motion.a>
