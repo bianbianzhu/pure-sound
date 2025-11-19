@@ -15,7 +15,7 @@ const products: ProductProps[] = [
     name: 'SIRIUS 2 MINI',
     code: '(F9)',
     description: 'IMMERSIVE SOUND MEETS DESIGN. A WIRELESS SPEAKER WITH BUILT-IN MICROPHONES, CRYSTAL-CLEAR AUDIO, AND A 360° LIGHT SHOW FOR ANY OCCASION.',
-    imageUrl: 'images/sirius.png', // Placeholder for small speaker
+    imageUrl: `${import.meta.env.BASE_URL}images/sirius.png`, // Placeholder for small speaker
     isNew: true
   },
   {
@@ -23,14 +23,14 @@ const products: ProductProps[] = [
     name: 'PARTYCON WAVE',
     code: '(M1)',
     description: 'BRING THE PARTY ANYWHERE. A WATERPROOF BLUETOOTH SPEAKER WITH DYNAMIC SOUND AND A VIVID LIGHT SHOW TO SET THE MOOD.',
-    imageUrl: 'images/partycon.png', // Placeholder for tall speaker
+    imageUrl: `${import.meta.env.BASE_URL}images/partycon.png`, // Placeholder for tall speaker
   },
   {
     id: '03',
     name: 'SSS 3100',
     code: '(GAI)',
     description: 'TURN ANY SPACE INTO A STAGE. A HIGH-POWER PARTY SPEAKER WITH LED LIGHT EFFECTS, WIRELESS MICROPHONE, POWERBANK FUNCTION, AND IPX4 WATER RESISTANCE.',
-    imageUrl: 'images/sss3100.png', // Placeholder for block speaker
+    imageUrl: `${import.meta.env.BASE_URL}images/sss3100.png`, // Placeholder for block speaker
   }
 ];
 
