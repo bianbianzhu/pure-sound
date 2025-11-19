@@ -14,6 +14,7 @@ const ProductDemoPopup: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number>(Date.now());
 
   // Check if this is the first visit
   useEffect(() => {
@@ -30,15 +31,14 @@ const ProductDemoPopup: React.FC = () => {
   useEffect(() => {
     if (isOpen && scrollContainerRef.current) {
       const container = scrollContainerRef.current;
-      const duration = 10000; // 20 seconds for full scroll
-      let startTime = Date.now();
-      let direction = 1; // 1 for down, -1 for up
-
+      const duration = 10000; // 10 seconds for full scroll
+      startTimeRef.current = Date.now();
+      
       const animate = () => {
         if (!scrollContainerRef.current) return;
 
         const currentTime = Date.now();
-        const elapsed = currentTime - startTime;
+        const elapsed = currentTime - startTimeRef.current;
         
         // Calculate the actual visual height of the content
         // The content is scaled by 0.25, so we need to calculate the scroll limit based on that
@@ -65,7 +65,7 @@ const ProductDemoPopup: React.FC = () => {
 
         // Reset when reaching the end to create a loop
         if (elapsed >= duration) {
-          startTime = Date.now();
+          startTimeRef.current = Date.now();
         }
 
         animationRef.current = requestAnimationFrame(animate);
@@ -82,6 +82,7 @@ const ProductDemoPopup: React.FC = () => {
   }, [isOpen]);
 
   const handleRestart = () => {
+    startTimeRef.current = Date.now();
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTop = 0;
     }
